@@ -1,7 +1,7 @@
 //  Created by todd d Halkowski on 7/1/15.
 //  Copyright (c) 2015 Geneva. All rights reserved.
-//  This code uses a switch case statement to print a msg to console to log which direction user swipes
-//  or prints a message is user shakes their device
+//  This code uses the AVFoundation framework to detect user motion of shake device
+//  and then plays a sound effect in response
 
 import UIKit
 import AVFoundation
