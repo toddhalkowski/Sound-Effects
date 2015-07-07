@@ -1,7 +1,7 @@
 //  Created by todd d Halkowski on 7/1/15.
 //  Copyright (c) 2015 Geneva. All rights reserved.
-//  This code uses a switch case statement to print a msg to console to log which direction user swipes
-//  or prints a message is user shakes their device
+//  uses AVFoundation framework to detect UI Event motion shake and
+//  responds by playing random mp3 sound utilizing the AVAudioPlayer class and arc4random function
 
 import UIKit
 import AVFoundation
@@ -9,6 +9,8 @@ import AVFoundation
 class ViewController: UIViewController {
     
     var player:  AVAudioPlayer = AVAudioPlayer()
+    
+    var sounds = [ "camels", "Applause", "horses", "NightStorm", "CoinDrop"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +22,13 @@ class ViewController: UIViewController {
     
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
         
-        
         if event.subtype == UIEventSubtype.MotionShake {
             
-            println("user shook their device")
             
-            var fileLocation = NSBundle.mainBundle().pathForResource("horses", ofType: "mp3")
+            var randomNumber = Int(arc4random_uniform(UInt32(sounds.count)))
+            
+            
+            var fileLocation = NSBundle.mainBundle().pathForResource(sounds[randomNumber], ofType: "mp3")
             
             var error: NSError? = nil
             
@@ -34,41 +37,10 @@ class ViewController: UIViewController {
             player.play()
             
             
-            
         }
     }
     
-    func swiped(gesture: UIGestureRecognizer) {
-        
-        
-        if  let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            
-            switch swipeGesture.direction {
-                
-            case UISwipeGestureRecognizerDirection.Right:
-                
-                println("user swiped right")
-                
-                
-            case UISwipeGestureRecognizerDirection.Left:
-                
-                println("user swiped left")
-                
-                
-            case UISwipeGestureRecognizerDirection.Up:
-                
-                println("user swiped up")
-                
-                
-            default:
-                break
-                
-            }
-        }
-        
-        
-        
-    }
+    
     
     
     
