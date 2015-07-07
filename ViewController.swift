@@ -1,7 +1,11 @@
 //  Created by todd d Halkowski on 7/1/15.
 //  Copyright (c) 2015 Geneva. All rights reserved.
+
 //  uses AVFoundation framework to detect UI Event motion shake and
-//  responds by playing random mp3 sound utilizing the AVAudioPlayer class and arc4random function
+//  responds by playing random mp3 sound utilizing the AVAudioPlayer class and arc4random functio=======
+//  This code uses the AVFoundation framework to detect user motion of shake device
+//  and then plays a sound effect in response
+
 
 import UIKit
 import AVFoundation
